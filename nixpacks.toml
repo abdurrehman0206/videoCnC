@@ -1,0 +1,12 @@
+[phases.setup]
+nixPkgs = ["python311", "ffmpeg", "imagemagick"]
+
+[phases.install]
+cmds = ["pip install -r requirements.txt"]
+
+[phases.build]
+cmds = ["mkdir -p temp"]
+
+[start]
+cmd = "mkdir -p temp && chmod 777 temp && uvicorn main:app --host 0.0.0.0 --port $PORT"
+
